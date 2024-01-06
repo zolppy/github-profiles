@@ -99,10 +99,10 @@ body {
 
 #profile-name {
   text-align: center;
+  text-transform: capitalize;
   font-weight: 600;
   font-size: 1.2rem;
   margin-top: 4%;
-  /* border: 1px solid red; */
 }
 
 #profile-bio {

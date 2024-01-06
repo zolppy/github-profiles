@@ -10,6 +10,29 @@ async function getUser(username) {
   return data;
 }
 
+function showProfileInfo(user) {
+  const profileImageContainer = document.querySelector("#profile-img");
+  const profileNameContainer = document.querySelector("#profile-name");
+  const profileBioContainer = document.querySelector("#profile-bio");
+  const profileFollowersContainer = document.querySelector("#profile-followers-number");
+  const profileFollowingContainer = document.querySelector("#profile-following-number");
+  const profileReposNumberContainer = document.querySelector("#profile-repos-number");
+
+  let profileImage = user.avatar_url;
+  let profileName = user.login;
+  let profileBio = user.bio;
+  let profileFollowers = user.followers;
+  let profileFollowing = user.following;
+  let profileReposNumber = user.public_repos;
+
+  profileImageContainer.src = profileImage;
+  profileNameContainer.textContent = profileName;
+  profileBioContainer.textContent = profileBio;
+  profileFollowersContainer.textContent = profileFollowers;
+  profileFollowingContainer.textContent = profileFollowing;
+  profileReposNumberContainer.textContent = profileReposNumber;
+}
+
 searchButton.addEventListener("click", async function() {
   // Pegando a entrada do usuário e limpando o campo
   const usernameInput = document.querySelector("#profile-name-input");
@@ -28,7 +51,7 @@ searchButton.addEventListener("click", async function() {
   showProfileInfo(user);
 
   // Mostrando lista de repositórios
-  showRepoList(user);
+  //showRepoList(user);
 
   // Mostrando contêiner de visão geral do perfil
   const profileOverviewContainer = document.querySelector("#profile-overview");
