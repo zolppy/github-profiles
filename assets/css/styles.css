@@ -28,19 +28,15 @@ html {
 body {
   background-color: var(--soft-black);
   min-height: 100vh;
-  position: relative;
 }
 
 #container {
   border: 1px solid rgba(255, 255, 255, .2);
   border-radius: 9px;
-  width: 97%;
+  width: 95%;
   max-width: 450px;
   padding: 3%;
-  position: absolute;
-  left: 50%;
-  top: 25%;
-  transform: translate(-50%, -50%);
+  margin: 5% auto 0 auto;
 }
 
 #github-icon {
