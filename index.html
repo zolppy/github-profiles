@@ -7,11 +7,24 @@
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <script defer src="assets/js/main.js"></script>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 </head>
 <body>
   <main>
     <div id="container">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima odio culpa impedit iure voluptatibus aliquam nesciunt eaque sint natus? Assumenda debitis reprehenderit explicabo aut tempora eum delectus maxime tenetur eius.
+      <i class="bi bi-github" id="github-icon"></i>
+      <h1 id="title">Buscar perfil do GitHub</h1>
+      <div id="search-profile">
+        <input
+          type="search"
+          id="profile-name-input"
+          placeholder="Digite o nome do usuário"
+        />
+        <button type="search" id="search-button">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
     </div>
   </main>
 </body>

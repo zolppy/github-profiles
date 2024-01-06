@@ -3,12 +3,12 @@
 :root {
   --soft-black: #333;
   --soft-white: #f5f5f5;
-  --blue: #fff;
-  --red: #fff;
-  --green: #fff;
-  --soft-blue: #fff;
-  --soft-green: #fff;
-  --soft-red: #fff;
+  --blue: rgb(89, 89, 228);
+  --soft-blue: rgb(134, 134, 233);
+  --green: rgb(89, 228, 89);
+  --soft-green: rgb(134, 233, 134);
+  --red: rgb(228, 89, 89);
+  --soft-red: rgb(233, 134, 134);
 }
 
 html {
@@ -20,7 +20,7 @@ html {
   color: var(--soft-white);
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 1rem;
-  font-weight: normal;
+  font-weight: 400;
   margin: 0;
   padding: 0;
 }
@@ -29,12 +29,61 @@ body {
   background-color: var(--soft-black);
   height: 100vh;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #container {
-  border: 1px solid red;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 9px;
   width: 95%;
+  width: 340px;
   max-width: 450px;
-  margin: 0 auto;
-  padding: 2%;
+  padding: 3%;
+}
+
+#github-icon {
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 3%;
+  text-align: center;
+}
+
+#title {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#profile-name-input,
+#search-button {
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 7px;
+  padding: 2.2% 2%;
+  width: 100%;
+}
+
+#profile-name-input {
+  border-color: rgba(255, 255, 255, .2);
+  outline: none;
+  margin: 3% 0;
+}
+
+#search-button {
+  border-color: var(--blue);
+}
+
+#search-button:active {
+  border-color: var(--soft-blue);
+}
+
+#search-button i {
+  color: var(--blue);
+}
+
+#search-button:active i {
+  color: var(--soft-blue);
 }
