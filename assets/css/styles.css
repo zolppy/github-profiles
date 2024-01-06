@@ -62,13 +62,13 @@ body {
   border-width: 1px;
   border-style: solid;
   border-radius: 7px;
+  outline: none;
   padding: 2.2% 2%;
   width: 100%;
 }
 
 #profile-name-input {
   border-color: rgba(255, 255, 255, .2);
-  outline: none;
   margin: 3% 0;
 }
 
@@ -76,7 +76,8 @@ body {
   border-color: var(--blue);
 }
 
-#search-button:active {
+#search-button:active,
+#search-button:focus {
   border-color: var(--soft-blue);
 }
 
@@ -84,7 +85,8 @@ body {
   color: var(--blue);
 }
 
-#search-button:active i {
+#search-button:active,
+#search-button:focus i {
   color: var(--soft-blue);
 }
 
@@ -126,11 +128,13 @@ body {
   border: 1px solid var(--blue);
   border-radius: 7px;
   color: var(--blue);
+  outline: none;
   padding: 2.2% 2%;
   width: 100%;
 }
 
-#show-repos-button:active {
+#show-repos-button:active,
+#show-repos-button:focus {
   border-color: var(--soft-blue);
   color: var(--soft-blue);
 }
@@ -160,12 +164,14 @@ body {
   border: 1px solid var(--green);
   color: var(--green);
   text-decoration: none;
+  outline: none;
   padding: 2%;
   border-radius: 7px;
   cursor: default;
 }
 
-.open-repo-button:active {
+.open-repo-button:active,
+.open-repo-button:focus {
   border: 1px solid var(--soft-green);
   color: var(--soft-green);
 }
@@ -176,11 +182,13 @@ body {
   border: 1px solid var(--blue);
   border-radius: 7px;
   color: var(--blue);
+  outline: none;
   padding: 2.2% 2%;
   width: 100%;
 }
 
-#hidden-repos-button:active {
+#hidden-repos-button:active,
+#hidden-repos-button:focus {
   border-color: var(--soft-blue);
   color: var(--soft-blue);
 }
