@@ -46,6 +46,8 @@ function showProfileInfo(profile) {
 function showRepoList(repos) {
   const repoListContainer = document.querySelector("#repo-list");
 
+  repoListContainer.innerHTML = "";
+
   for (const repo of repos) {
     const repoElement = `
       <div class="repo">
