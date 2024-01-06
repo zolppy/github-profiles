@@ -135,6 +135,56 @@ body {
   color: var(--soft-blue);
 }
 
+#repo-list {
+  margin-top: 3%;
+}
+
+#repo-list-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+.repo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2%;
+  margin-top: 2%;
+  border-top: 1px solid rgba(255, 255, 255, .2);
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.open-repo-button {
+  border: 1px solid var(--green);
+  color: var(--green);
+  text-decoration: none;
+  padding: 2%;
+  border-radius: 7px;
+  cursor: default;
+}
+
+.open-repo-button:active {
+  border: 1px solid var(--soft-green);
+  color: var(--soft-green);
+}
+
+#hidden-repos-button {
+  margin-top: 3%;
+  background-color: transparent;
+  border: 1px solid var(--blue);
+  border-radius: 7px;
+  color: var(--blue);
+  padding: 2.2% 2%;
+  width: 100%;
+}
+
+#hidden-repos-button:active {
+  border-color: var(--soft-blue);
+  color: var(--soft-blue);
+}
+
 .hidden {
   display: none;
 }
