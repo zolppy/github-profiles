@@ -27,7 +27,7 @@ html {
 
 body {
   background-color: var(--soft-black);
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -88,6 +88,10 @@ body {
 #search-button:active,
 #search-button:focus i {
   color: var(--soft-blue);
+}
+
+#profile-overview {
+  margin-top: 5%;
 }
 
 #profile-img {

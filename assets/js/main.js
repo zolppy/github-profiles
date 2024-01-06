@@ -1,16 +1,26 @@
 const searchButton = document.querySelector("#search-button");
+const showReposButton = document.querySelector("#show-repos-button");
+const hiddenReposButton = document.querySelector("#hidden-repos-button");
 
-
-async function getUser(username) {
+async function getProfile(profileName) {
   const API_URL = "https://api.github.com/users";
 
-  const response = await fetch(`${API_URL}/${username}`);
+  const response = await fetch(`${API_URL}/${profileName}`);
   const data = await response.json();
 
   return data;
 }
 
-function showProfileInfo(user) {
+async function getRepos(profileName) {
+  const API_URL = `https://api.github.com/users/${profileName}/repos`;
+
+  const response = await fetch(API_URL);
+  const data = await response.json();
+
+  return data;
+}
+
+function showProfileInfo(profile) {
   const profileImageContainer = document.querySelector("#profile-img");
   const profileNameContainer = document.querySelector("#profile-name");
   const profileBioContainer = document.querySelector("#profile-bio");
@@ -18,12 +28,12 @@ function showProfileInfo(user) {
   const profileFollowingContainer = document.querySelector("#profile-following-number");
   const profileReposNumberContainer = document.querySelector("#profile-repos-number");
 
-  let profileImage = user.avatar_url;
-  let profileName = user.login;
-  let profileBio = user.bio;
-  let profileFollowers = user.followers;
-  let profileFollowing = user.following;
-  let profileReposNumber = user.public_repos;
+  let profileImage = profile.avatar_url;
+  let profileName = profile.login;
+  let profileBio = profile.bio;
+  let profileFollowers = profile.followers;
+  let profileFollowing = profile.following;
+  let profileReposNumber = profile.public_repos;
 
   profileImageContainer.src = profileImage;
   profileNameContainer.textContent = profileName;
@@ -33,27 +43,62 @@ function showProfileInfo(user) {
   profileReposNumberContainer.textContent = profileReposNumber;
 }
 
+function showRepoList(repos) {
+  const repoListContainer = document.querySelector("#repo-list");
+
+  for (const repo of repos) {
+    const repoElement = `
+      <div class="repo">
+        <p class="repo-name">${repo.name}</p>
+        <a
+          href="${repo.html_url}"
+          class="open-repo-button"
+          target="_blank"
+        >
+          Abrir
+        </a>
+      </div>
+    `;
+
+    repoListContainer.innerHTML += repoElement;
+  }
+}
+
 searchButton.addEventListener("click", async function() {
   // Pegando a entrada do usuário e limpando o campo
-  const usernameInput = document.querySelector("#profile-name-input");
-  let username = usernameInput.value;
+  const profileNameInput = document.querySelector("#profile-name-input");
+  let profileName = profileNameInput.value;
 
-  usernameInput.value = "";
-
-  // Escondendo contêiner de busca
-  const searchProfileContainer = this.closest("#search-profile");
-  searchProfileContainer.classList.add("hidden");
+  profileNameInput.value = "";
   
   // Requisitando usuário à API
-  const user = await getUser(username);
+  const profile = await getProfile(profileName);
 
   // Mostrando dados do perfil
-  showProfileInfo(user);
+  showProfileInfo(profile);
+
+  const repos = await getRepos(profileName);
 
   // Mostrando lista de repositórios
-  //showRepoList(user);
+  showRepoList(repos);
 
   // Mostrando contêiner de visão geral do perfil
   const profileOverviewContainer = document.querySelector("#profile-overview");
   profileOverviewContainer.classList.remove("hidden");
+});
+
+showReposButton.addEventListener("click", function() {
+  const repoListContainer = document.querySelector("#repo-list");
+
+  repoListContainer.classList.remove("hidden");
+  this.classList.add("hidden");
+  hiddenReposButton.classList.remove("hidden");
+});
+
+hiddenReposButton.addEventListener("click", function() {
+  const repoListContainer = document.querySelector("#repo-list");
+
+  repoListContainer.classList.add("hidden");
+  this.classList.add("hidden");
+  showReposButton.classList.remove("hidden");
 });
