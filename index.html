@@ -13,9 +13,9 @@
 <body>
   <main>
     <div id="container">
-      <i class="bi bi-github" id="github-icon"></i>
-      <h1 id="title">Buscar perfil do GitHub</h1>
-      <div id="search-profile">
+      <div id="search-profile" class="hidden">
+        <i class="bi bi-github" id="github-icon"></i>
+        <h1 id="title">Buscar perfil do GitHub</h1>
         <input
           type="search"
           id="profile-name-input"
@@ -24,6 +24,40 @@
         <button type="search" id="search-button">
           <i class="bi bi-search"></i>
         </button>
+      </div>
+      <div id="profile-overview">
+        <img
+          src="https://avatars.githubusercontent.com/u/94535032?v=4"
+          id="profile-img"
+        />
+        <p id="profile-name">Zolppy</p>
+        <p id="profile-bio">
+          "I have walked across the surface of the sun..., I have witnessed events so tiny and so fast, they could hardly be said to have occurred at all."
+        </p>
+        <div id="social">
+          <p id="profile-followers">
+            <i class="bi bi-people"></i>
+            <span id="profile-followers-number">3</span>
+            followers
+          </p>
+          <i class="bi bi-dot"></i>
+          <p id="profile-following">
+            <span id="profile-following-number">5</span>
+            following
+          </p>
+        </div>
+        <div id="profile-repos">
+          <i class="bi bi-code-slash"></i>
+          <span id="profile-repos-number">34</span>
+          repositórios
+        </div>
+        <button type="button" id="show-repos-button">Mostrar repositórios</button>
+        <div id="repo-list">
+          <div id="repo">
+            <p></p>
+            <button type="button" id="open-repo-button">Abrir</button>
+          </div>
+        </div>
       </div>
     </div>
   </main>

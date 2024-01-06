@@ -87,3 +87,54 @@ body {
 #search-button:active i {
   color: var(--soft-blue);
 }
+
+#profile-img {
+  width: 40%;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+#profile-name {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 4%;
+  /* border: 1px solid red; */
+}
+
+#profile-bio {
+  text-align: justify;
+  margin: 5% 0;
+}
+
+#social {
+  width: 65%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+#profile-repos {
+  margin-top: 5%;
+  text-align: center;
+}
+
+#show-repos-button {
+  margin-top: 3%;
+  background-color: transparent;
+  border: 1px solid var(--blue);
+  border-radius: 7px;
+  color: var(--blue);
+  padding: 2.2% 2%;
+  width: 100%;
+}
+
+#show-repos-button:active {
+  border-color: var(--soft-blue);
+  color: var(--soft-blue);
+}
+
+.hidden {
+  display: none;
+}
