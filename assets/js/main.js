@@ -46,19 +46,18 @@ function showProfileInfo(profile) {
 function showRepoList(repos) {
   const repoListContainer = document.querySelector("#repo-list");
 
-  repoListContainer.innerHTML = "";
+  const currentRepos = repoListContainer.querySelectorAll(".repo");
+
+  for (const repo of currentRepos) {
+    repo.remove();
+  }
 
   for (const repo of repos) {
     const repoElement = `
       <div class="repo">
-        <p class="repo-name">${repo.name}</p>
-        <a
-          href="${repo.html_url}"
-          class="open-repo-button"
-          target="_blank"
-        >
-          Abrir
-        </a>
+        <p class="repo-name">Nome: ${repo.name}</p>
+        <p class="repo-language">Linguagem: ${repo.language}</p>
+        <p class="repo-link">Link: <a href="${repo.html_url}">Abrir</a></p>
       </div>
     `;
 

@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 :root {
+  --blue: rgb(89, 89, 228);
+  --green: rgb(89, 228, 89);
+  --red: rgb(228, 89, 89);
   --soft-black: #333;
   --soft-white: #f5f5f5;
-  --blue: rgb(89, 89, 228);
   --soft-blue: rgb(134, 134, 233);
-  --green: rgb(89, 228, 89);
   --soft-green: rgb(134, 233, 134);
-  --red: rgb(228, 89, 89);
   --soft-red: rgb(233, 134, 134);
 }
 
@@ -27,54 +27,71 @@ html {
 
 body {
   background-color: var(--soft-black);
-  min-height: 100vh;
+  height: 100vh;
 }
 
 #container {
   border: 1px solid rgba(255, 255, 255, .2);
   border-radius: 9px;
+  margin: 5% auto 0 auto;
+  padding: 3%;
   width: 95%;
   max-width: 450px;
-  padding: 3%;
-  margin: 5% auto 0 auto;
 }
 
 #github-icon {
   display: block;
-  font-size: 3rem;
+  color: rgba(255, 255, 255, .7);
+  font-size: 3.3rem;
   margin-bottom: 3%;
   text-align: center;
 }
 
 #title {
-  text-align: center;
-  font-size: 1.2rem;
+  color: rgba(255, 255, 255, .7);
+  font-size: 1.3rem;
   font-weight: 600;
+  text-align: center;
 }
 
-#profile-name-input,
-#search-button {
+#input-wrap {
+  margin-top: 3%;
+  display: flex;
+  align-items: center;
+}
+
+#search-button,
+#profile-name-input {
+  padding: 2.8%;
+}
+
+button,
+#profile-name-input {
   background-color: transparent;
-  border-width: 1px;
   border-style: solid;
-  border-radius: 7px;
+  border-width: 1px;
   outline: none;
-  padding: 2.2% 2%;
-  width: 100%;
 }
 
 #profile-name-input {
+  flex-grow: 6;
   border-color: rgba(255, 255, 255, .2);
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
   margin: 3% 0;
 }
 
-#search-button {
-  border-color: var(--blue);
-}
-
+#profile-name-input:focus
 #search-button:active,
 #search-button:focus {
   border-color: var(--soft-blue);
+}
+
+#search-button {
+  flex-grow: 2;
+  border-color: var(--blue);
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
 
 #search-button i {
@@ -91,28 +108,28 @@ body {
 }
 
 #profile-img {
-  width: 40%;
   border-radius: 50%;
   display: block;
   margin: 0 auto;
+  width: 40%;
 }
 
 #profile-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 4%;
   text-align: center;
   text-transform: capitalize;
-  font-weight: 600;
-  font-size: 1.2rem;
-  margin-top: 4%;
 }
 
 #profile-bio {
-  text-align: justify;
   margin: 5% 0;
+  text-align: justify;
 }
 
 #social {
-  width: 65%;
   margin: 0 auto;
+  width: 65%;
   display: flex;
   justify-content: space-around;
 }
@@ -123,11 +140,11 @@ body {
 }
 
 #show-repos-button {
-  margin-top: 3%;
   background-color: transparent;
   border: 1px solid var(--blue);
   border-radius: 7px;
   color: var(--blue);
+  margin-top: 3%;
   outline: none;
   padding: 2.2% 2%;
   width: 100%;
@@ -140,7 +157,7 @@ body {
 }
 
 #repo-list {
-  margin-top: 3%;
+  margin-top: 5%;
 }
 
 #repo-list-title {
@@ -151,38 +168,29 @@ body {
 }
 
 .repo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2%;
-  margin-top: 2%;
-  border-top: 1px solid rgba(255, 255, 255, .2);
+  /* border-top: 1px solid rgba(255, 255, 255, .2); */
   border-bottom: 1px solid rgba(255, 255, 255, .2);
-}
-
-.open-repo-button {
-  border: 1px solid var(--green);
-  color: var(--green);
-  text-decoration: none;
-  outline: none;
+  margin-top: 2%;
   padding: 2%;
-  border-radius: 7px;
-  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.open-repo-button:active,
-.open-repo-button:focus {
-  border: 1px solid var(--soft-green);
-  color: var(--soft-green);
+.repo-link a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.repo-link a:hover {
+  color: var(--soft-blue);
 }
 
 #hidden-repos-button {
-  margin-top: 3%;
-  background-color: transparent;
-  border: 1px solid var(--blue);
+  border-color: var(--blue);
   border-radius: 7px;
   color: var(--blue);
-  outline: none;
+  margin-top: 3%;
   padding: 2.2% 2%;
   width: 100%;
 }
