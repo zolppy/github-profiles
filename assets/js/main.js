@@ -56,7 +56,9 @@ function showRepoList(repos) {
     const repoElement = `
       <div class="repo">
         <p class="repo-name">Nome: ${repo.name}</p>
+        <p class="repo-description">Descrição: ${repo.description}</p>
         <p class="repo-language">Linguagem: ${repo.language}</p>
+        <p class="repo-topics">Tópicos: ${[...repo.topics]}</p>
         <p class="repo-link">Link: <a href="${repo.html_url}">Abrir</a></p>
       </div>
     `;
