@@ -9,6 +9,10 @@
   <script defer src="assets/js/main.js"></script>
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- Inter - Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
   <main>
@@ -16,11 +20,12 @@
       <div id="search-profile">
         <i class="bi bi-github" id="github-icon"></i>
         <h1 id="title">Busca de perfil do GitHub</h1>
+        <p id="error-message" class="hidden">Perfil não encontrado</p>
         <div id="input-wrap">
           <input
             type="search"
             id="profile-name-input"
-            placeholder="Informe o o apelido do perfil"
+            placeholder="Informe o apelido do perfil"
           />
           <button type="search" id="search-button">
             <i class="bi bi-search"></i>
@@ -50,6 +55,10 @@
           <i class="bi bi-code-slash"></i>
           <span id="profile-repos-number"></span>
           repositórios públicos
+        </div>
+        <div id="profile-company">
+          <i class="bi bi-building"></i>
+          <span id="profile-company-name"></span>
         </div>
         <button type="button" id="show-repos-button">Mostrar repositórios</button>
         <div id="repo-list" class="hidden">

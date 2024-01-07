@@ -6,9 +6,16 @@ async function getProfile(profileName) {
   const API_URL = "https://api.github.com/users";
 
   const response = await fetch(`${API_URL}/${profileName}`);
-  const data = await response.json();
 
-  return data;
+  console.log(response.ok);
+  
+  if (response.ok) {
+    const data = await response.json();
+    
+    return data;
+  }
+    
+  return null;
 }
 
 async function getRepos(profileName) {
@@ -27,13 +34,15 @@ function showProfileInfo(profile) {
   const profileFollowersContainer = document.querySelector("#profile-followers-number");
   const profileFollowingContainer = document.querySelector("#profile-following-number");
   const profileReposNumberContainer = document.querySelector("#profile-repos-number");
+  const profileCompanyNameContainer = document.querySelector("#profile-company-name");
 
   let profileImage = profile.avatar_url;
-  let profileName = profile.login;
+  let profileName = profile.name;
   let profileBio = profile.bio;
   let profileFollowers = profile.followers;
   let profileFollowing = profile.following;
   let profileReposNumber = profile.public_repos;
+  let profileCompanyName = profile.company;
 
   profileImageContainer.src = profileImage;
   profileNameContainer.textContent = profileName;
@@ -41,6 +50,7 @@ function showProfileInfo(profile) {
   profileFollowersContainer.textContent = profileFollowers;
   profileFollowingContainer.textContent = profileFollowing;
   profileReposNumberContainer.textContent = profileReposNumber;
+  profileCompanyNameContainer.textContent = profileCompanyName;
 }
 
 function showRepoList(repos) {
@@ -67,6 +77,16 @@ function showRepoList(repos) {
   }
 }
 
+function showErrorMessage() {
+  const errorMessageContainer = document.querySelector("#error-message");
+
+  errorMessageContainer.classList.remove("hidden");
+
+  setTimeout(() => {
+    errorMessageContainer.classList.add("hidden");
+  }, 1500);
+}
+
 searchButton.addEventListener("click", async function() {
   // Pegando a entrada do usuário e limpando o campo
   const profileNameInput = document.querySelector("#profile-name-input");
@@ -76,6 +96,11 @@ searchButton.addEventListener("click", async function() {
   
   // Requisitando usuário à API
   const profile = await getProfile(profileName);
+  
+  if (!profile) {
+    showErrorMessage();
+    return;
+  }
 
   // Mostrando dados do perfil
   showProfileInfo(profile);
