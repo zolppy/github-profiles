@@ -17,7 +17,7 @@ html {
 
 * {
   box-sizing: border-box;
-  color: var(--soft-white);
+  color: rgba(255, 255, 255, .7);
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -41,14 +41,12 @@ body {
 
 #github-icon {
   display: block;
-  color: rgba(255, 255, 255, .7);
   font-size: 3.3rem;
   margin-bottom: 3%;
   text-align: center;
 }
 
 #title {
-  color: rgba(255, 255, 255, .7);
   font-size: 1.3rem;
   font-weight: 600;
   text-align: center;
@@ -81,7 +79,7 @@ button,
   margin: 3% 0;
 }
 
-#profile-name-input:focus
+#profile-name-input:focus,
 #search-button:active,
 #search-button:focus {
   border-color: var(--soft-blue);
