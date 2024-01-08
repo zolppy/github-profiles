@@ -134,7 +134,7 @@ searchButton.addEventListener("click", async function() {
   if (!profile) {
     showErrorMessage();
     const profileOverviewContainer = document.querySelector("#profile-overview");
-    profileOverviewContainer.classList.remove("hidden");
+    profileOverviewContainer.classList.add("hidden");
     return;
   }
 
