@@ -143,6 +143,11 @@ button,
   text-align: center;
 }
 
+#creation-date {
+  margin-top: 1%;
+  text-align: center;
+}
+
 #profile-repos {
   margin-top: 1%;
   text-align: center;
@@ -183,6 +188,10 @@ button,
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.repo-detail {
+  font-weight: 600;
 }
 
 .repo-link a {
