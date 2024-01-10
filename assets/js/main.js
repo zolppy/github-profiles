@@ -1,6 +1,11 @@
+/* Elementos com eventos associados */
+
 const searchButton = document.querySelector("#search-button");
 const showReposButton = document.querySelector("#show-repos-button");
 const hiddenReposButton = document.querySelector("#hidden-repos-button");
+const inputField = document.querySelector("#profile-name-input");
+
+/* Funções */
 
 async function getProfile(profileName) {
   const API_URL = "https://api.github.com/users";
@@ -25,8 +30,8 @@ async function getRepos(profileName) {
   return data;
 }
 
-// Formata data no estilo "aaaa-mm-dd" para "dd/mm/aaaa"
 function formatDate(date) {
+  /* Formata data no estilo "aaaa-mm-dd" para "dd/mm/aaaa" */
   var part = date.split("-");
   
   var formatedDate = part[2] + "/" + part[1] + "/" + part[0];
@@ -121,7 +126,9 @@ function showErrorMessage() {
   }, 1500);
 }
 
-searchButton.addEventListener("click", async function() {
+/* Função principal */
+
+async function main() {
   // Pegando a entrada do usuário e limpando o campo
   const profileNameInput = document.querySelector("#profile-name-input");
   let profileName = profileNameInput.value;
@@ -149,8 +156,14 @@ searchButton.addEventListener("click", async function() {
   // Mostrando contêiner de visão geral do perfil
   const profileOverviewContainer = document.querySelector("#profile-overview");
   profileOverviewContainer.classList.remove("hidden");
-});
+}
 
+/* Eventos */
+
+searchButton.addEventListener("click", main);
+inputField.addEventListener("keyup", async function(event) {
+  event.key === "Enter" && main();
+});
 showReposButton.addEventListener("click", function() {
   const repoListContainer = document.querySelector("#repo-list");
 
