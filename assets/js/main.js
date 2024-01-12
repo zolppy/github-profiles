@@ -77,7 +77,6 @@ function showRepoList(repos) {
     repo.remove();
   }
 
-  
   for (const repo of repos) {
     repoId++;
     let repoName = repo.name;
@@ -129,11 +128,18 @@ function showErrorMessage() {
 /* Função principal */
 
 async function main() {
+  const repoListContainer = document.querySelector("#repo-list");
   const profileOverviewContainer = document.querySelector("#profile-overview");
   const loading = document.querySelector(".loading");
 
   if (!profileOverviewContainer.classList.contains("hidden")) {
     profileOverviewContainer.classList.add("hidden");
+  }
+
+  if (showReposButton.classList.contains("hidden")) {
+    showReposButton.classList.remove("hidden");
+    hiddenReposButton.classList.add("hidden");
+    repoListContainer.classList.add("hidden");
   }
 
   // Pegando a entrada do usuário e limpando o campo
