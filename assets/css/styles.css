@@ -88,23 +88,23 @@ button,
 #profile-name-input:focus,
 #search-button:active,
 #search-button:focus {
-  border-color: var(--soft-blue);
+  border-color: var(--blue);
 }
 
 #search-button {
   flex-grow: 2;
-  border-color: var(--blue);
+  border-color: rgba(255, 255, 255, .2);
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
 }
 
 #search-button i {
-  color: var(--blue);
+  color: rgba(255, 255, 255, .2);
 }
 
 #search-button:active,
 #search-button:focus i {
-  color: var(--soft-blue);
+  color: var(--blue);
 }
 
 #profile-overview {
@@ -216,6 +216,25 @@ button,
 #hidden-repos-button:focus {
   border-color: var(--soft-blue);
   color: var(--soft-blue);
+}
+
+.loading {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 50%;
+  margin: 5% auto 0 auto;
+  border: 7px solid rgba(255, 255, 255, .2);
+  border-top-color: var(--blue);
+  animation: loop .7s linear infinite;
+}
+
+@keyframes loop {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .hidden {

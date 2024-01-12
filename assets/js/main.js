@@ -129,19 +129,28 @@ function showErrorMessage() {
 /* Função principal */
 
 async function main() {
+  const profileOverviewContainer = document.querySelector("#profile-overview");
+  const loading = document.querySelector(".loading");
+
+  if (!profileOverviewContainer.classList.contains("hidden")) {
+    profileOverviewContainer.classList.add("hidden");
+  }
+
   // Pegando a entrada do usuário e limpando o campo
   const profileNameInput = document.querySelector("#profile-name-input");
   let profileName = profileNameInput.value;
 
   profileNameInput.value = "";
   
+  loading.classList.remove("hidden");
+
   // Requisitando usuário à API
   const profile = await getProfile(profileName);
   
   if (!profile) {
     showErrorMessage();
-    const profileOverviewContainer = document.querySelector("#profile-overview");
     profileOverviewContainer.classList.add("hidden");
+    loading.classList.add("hidden");
     return;
   }
 
@@ -153,8 +162,9 @@ async function main() {
   // Mostrando lista de repositórios
   showRepoList(repos);
 
+  loading.classList.add("hidden");
+
   // Mostrando contêiner de visão geral do perfil
-  const profileOverviewContainer = document.querySelector("#profile-overview");
   profileOverviewContainer.classList.remove("hidden");
 }
 
